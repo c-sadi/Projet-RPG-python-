@@ -1,0 +1,90 @@
+import nest_asyncio
+nest_asyncio
+import discord
+import random
+
+intents = discord.Intents.all()
+intents.messages = True
+intents.members = True
+intents.typing = True
+client = discord.Client(intents=intents)
+
+
+
+@client.event
+async def on_ready():
+    print("Le bot est prêt !")
+
+
+@client.event
+async def on_member_join(member):
+  general_channel = client.get_channel(***************)
+  await general_channel.send("Bienvenue sur le serveur ! "+ member.name)
+
+
+@client.event
+async def on_message(message):
+  print(message.content)  # Pour afficher les messages écrit sur discord dans la console
+  if message.author == client.user:
+    return
+  message.content = message.content.lower()
+
+
+  score = 0
+  compteur = 0
+  enigme1 = "Quel est le langage de programmation le plus populaire ?"
+  enigme2 = "Quel est l'abrévation de la RAM ?"
+  enigme3 = "Quel est le pire IDE ?"
+  enigme4 = "Qui est l'inventeur d'internet ?"
+  enigme5 = "La meuilleure école de la tech c'est...?"
+  enigmes = [enigme1, enigme2, enigme3, enigme4, enigme5]
+  indices = {enigme1:"Pense à un serpent", enigme2:"C'est en anglais", enigme3:"C'est en trois lettres", enigme4:"Demande à brontis !", enigme5:"Un établissement ethic ;)"}
+  reponses = {enigme1:"python", enigme2:"random access memory", enigme3:"vim", enigme4:"tim berners-lee", enigme5:"hetic"}
+
+
+
+  if message.content == "hello":
+    await message.channel.send("Hello, ici tu peux jouer à un jeu d'énigme\nT'es partant ou pas ?")
+    
+  
+  if message.content == "oui" :
+    await message.channel.send("Super ! Le jeu va commencer, mais avant, voici les règles :\n1- Si tu trouve la réponse tu marque le point\n2- Si c'est trop dur, dit le mot (indice) et je t'aiderai\n3- Si t'es vraiment coincé, dit le mot (restart) et tu le jeu reprendra à zero\nSi t'es près pour la première question dit moi go" )
+    player = await client.wait_for("message")
+    
+
+  if player.content == "go":
+      
+    while compteur < 5 :
+        
+      question = random.choice(enigmes)
+      await message.channel.send(question)
+      player = await client.wait_for("message")
+
+      if player.content == "restart" :
+        await message.channel.send("Vous avez reset le jeu")
+        compteur = 0
+        score = 0
+        enigmes=[enigme1,enigme2,enigme3,enigme4,enigme5]
+
+      if player.content == "indice" :
+        await message.channel.send(indices[question])
+        player = await client.wait_for("message")
+
+      while player.content != reponses[question] :
+        await message.channel.send ("Mauvaise réponse, retente ta chance !")
+        player = await client.wait_for("message")
+
+        if player.content == "indice" :
+          await message.channel.send(indices[question])
+          player = await client.wait_for("message")
+
+      if player.content == reponses[question]:
+        await message.channel.send("Bravo !")
+        compteur += 1
+        score += 1
+        enigmes.remove(question)
+
+    if compteur == 5 :
+      await message.channel.send("Fin du jeu ! Ton score est de "+str(score))
+
+client.run("***************************************")
