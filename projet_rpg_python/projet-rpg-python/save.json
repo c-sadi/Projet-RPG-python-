@@ -1,0 +1,141 @@
+{
+    "player": {
+        "name": "Moi",
+        "health": 100,
+        "MaxHealth": 100,
+        "oxygen": 100,
+        "ammo": 10,
+        "attack": 35,
+        "defense": 15,
+        "items": [
+            {
+                "name": "Potion",
+                "description": "Une petite potion rouge qui sent mauvais (Restaure 20 PV)",
+                "quantity": 1
+            }
+        ]
+    },
+    "rooms": [
+        {
+            "name": "Debut",
+            "items": [],
+            "mobs": [],
+            "description": "La salle de depart",
+            "exits": {
+                "nord": "couloir1",
+                "sud": "dortoir",
+                "est": "infirmerie",
+                "west": "cafeteria"
+            },
+            "item_chance": 0.95,
+            "fight_chance": 0
+        },
+        {
+            "name": "couloir1",
+            "items": [],
+            "mobs": [
+                {
+                    "name": "Alien",
+                    "health": 100,
+                    "MaxHealth": 100,
+                    "oxygen": 0,
+                    "ammo": 0,
+                    "attack": 20,
+                    "defense": 25,
+                    "items": []
+                }
+            ],
+            "description": "desc.",
+            "exits": {
+                "sud": "Debut",
+                "nord": "pont/bridge"
+            },
+            "item_chance": 0.25,
+            "fight_chance": 0.75
+        },
+        {
+            "name": "dortoir",
+            "items": [
+                {
+                    "name": "Super potion",
+                    "description": "Une grosse potion rouge qui sent mauvais (Restaure 50 PV)",
+                    "quantity": 1
+                }
+            ],
+            "mobs": [
+                {
+                    "name": "Alien",
+                    "health": 100,
+                    "MaxHealth": 100,
+                    "oxygen": 0,
+                    "ammo": 0,
+                    "attack": 20,
+                    "defense": 25,
+                    "items": []
+                }
+            ],
+            "description": "desc.",
+            "exits": {
+                "nord": "Debut"
+            },
+            "item_chance": 0.5,
+            "fight_chance": 0.25
+        },
+        {
+            "name": "infirmerie",
+            "items": [
+                {
+                    "name": "Super potion",
+                    "description": "Une grosse potion rouge qui sent mauvais (Restaure 50 PV)",
+                    "quantity": 2
+                },
+                {
+                    "name": "Potion",
+                    "description": "Une petite potion rouge qui sent mauvais (Restaure 20 PV)",
+                    "quantity": 1
+                }
+            ],
+            "mobs": [],
+            "description": "desc.",
+            "exits": {
+                "west": "Debut"
+            },
+            "item_chance": 0.5,
+            "fight_chance": 0.25
+        },
+        {
+            "name": "cafeteria",
+            "items": [],
+            "mobs": [
+                {
+                    "name": "Alien",
+                    "health": 100,
+                    "MaxHealth": 100,
+                    "oxygen": 0,
+                    "ammo": 0,
+                    "attack": 20,
+                    "defense": 25,
+                    "items": []
+                }
+            ],
+            "description": "desc.",
+            "exits": {
+                "est": "Debut"
+            },
+            "item_chance": 0.5,
+            "fight_chance": 0.25
+        },
+        {
+            "name": "pont/bridge",
+            "items": [],
+            "mobs": [],
+            "description": "desc.",
+            "exits": {
+                "sud": "couloir1"
+            },
+            "item_chance": 0.5,
+            "fight_chance": 0.25
+        }
+    ],
+    "current_room": "Debut"
+}

@@ -1,0 +1,3 @@
+- Loot des ennemis
+- Ajouter des armes
+- Salle de boss

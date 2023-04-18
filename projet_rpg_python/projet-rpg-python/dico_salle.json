@@ -1,0 +1,116 @@
+
+{
+  "rooms": [
+    {
+      "name": "Debut",
+      "description": "La salle de depart",
+      "items": [
+        {
+          "name": "Potion",
+          "description": "Une petite potion rouge qui sent mauvais (Restaure 20 PV)",
+          "quantity": 1
+        }
+      ],
+      "exits": {
+        "nord": "couloir1",
+        "sud": "dortoir",
+        "est": "infirmerie",
+        "west": "cafeteria"
+      },
+      "item_chance": 0.95
+    },
+    {
+      "name": "couloir1",
+      "description": "desc.",
+      "items": [],
+      "mobs": [
+        {
+          "name": "Alien",
+          "attack": 20,
+          "defense": 25
+        }
+      ],
+      "exits": {
+        "sud": "Debut",
+        "nord": "pont/bridge"
+      },
+      "item_chance": 0.25,
+      "fight_chance": 0.75
+    },
+    {
+      "name": "dortoir",
+      "description": "desc.",
+      "items": [
+        {
+          "name": "Super potion",
+          "description": "Une grosse potion rouge qui sent mauvais (Restaure 50 PV)",
+          "quantity": 1
+        }
+      ],
+      "mobs": [
+        {
+          "name": "Alien",
+          "attack": 20,
+          "defense": 25
+        }
+      ],
+      "exits": {
+        "nord": "Debut"
+      },
+      "item_chance": 0.5,
+      "fight_chance": 0.25
+    },
+    {
+      "name": "infirmerie",
+      "description": "desc.",
+      "items": [
+        {
+          "name": "Super potion",
+          "description": "Une grosse potion rouge qui sent mauvais (Restaure 50 PV)",
+          "quantity": 2
+        },
+        {
+          "name": "Potion",
+          "description": "Une petite potion rouge qui sent mauvais (Restaure 20 PV)",
+          "quantity": 1
+        }
+      ],
+      "exits": {
+        "west": "Debut"
+      },
+      "item_chance": 0.5,
+      "fight_chance": 0.25
+    },
+    {
+      "name": "cafeteria",
+      "description": "desc.",
+      "items": [],
+      "mobs": [
+        {
+          "name": "Alien",
+          "attack": 20,
+          "defense": 25
+        }
+      ],
+      "exits": {
+        "est": "Debut"
+      },
+      "item_chance": 0.5,
+      "fight_chance": 0.25
+    },
+    {
+      "name": "pont/bridge",
+      "description": "desc.",
+      "items": [],
+      "exits": {
+        "sud": "couloir1"
+      },
+      "item_chance": 0.5,
+      "fight_chance": 0.25
+    }
+
+  ]
+}
+
+
+
